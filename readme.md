@@ -1,13 +1,13 @@
 # MarsTech Promise Like Syntax
- - [Instalation](#Instalation)
-	 - [Configuration](#Configuration)
- - [MSV_PROMISE_DEFINE_ARGS[n]](#MSV_PROMISE_DEFINE_ARGS[n])
- - [MSV_PROMISE and MSV_PROMISE_ARGS[n]](#MSV_PROMISE-and-MSV_PROMISE_ARGS[n])
- - [MSV_PROMISE_THEN and MSV_PROMISE_THEN_ARGS[n]](#MSV_PROMISE_THEN-and-MSV_PROMISE_THEN_ARGS[n])
- - [MSV_PROMISE_THEN_CONTINUE and MSV_PROMISE_THEN_CONTINUE_ARGS[n]](#MSV_PROMISE_THEN_CONTINUE-and-MSV_PROMISE_THEN_CONTINUE_ARGS[n])
- - [MSV_PROMISE_CATCH](#MSV_PROMISE_CATCH)
- - [Source code documentation](#Source-code-documentation)
- - [License](#License)
+ - [Instalation](#instalation)
+	 - [Configuration](#configuration)
+ - [MSV_PROMISE_DEFINE_ARGSn](#msv_promise_define_argsn)
+ - [MSV_PROMISE and MSV_PROMISE_ARGSn](#msv_promise-and-msv_promise_argsn)
+ - [MSV_PROMISE_THEN and MSV_PROMISE_THEN_ARGSn](#msv_promise_then-and-msv_promise_then_argsn)
+ - [MSV_PROMISE_THEN_CONTINUE and MSV_PROMISE_THEN_CONTINUE_ARGSn](#msv_promise_then_continue-and-msv_promise_then_continue_argsn)
+ - [MSV_PROMISE_CATCH](#msv_promise_catch)
+ - [Source code documentation](#source-code-documentation)
+ - [License](#license)
 
 MarsTech Promise Like Syntax (MPLS) is a C++ project to allow control returned errorcodes similar to promises. The project does not implement promises, it is only set of macros which allows to write code similar to (JavaScript) promises. 
 
@@ -89,8 +89,8 @@ You can define this macros in your compiler or maybe better solution is to creat
 ~~~
 Then you can include your own MPLS header file to your source files in your project.
 
-## MSV_PROMISE_DEFINE_ARGS[n]
-Defines (output) arguments for next [MSV_PROMISE_THEN](#MSV_PROMISE_THEN-and-MSV_PROMISE_THEN_ARGS[n]). There are these versions of MSV_PROMISE_DEFINE_ARGS[n] macros:
+## MSV_PROMISE_DEFINE_ARGSn
+Defines (output) arguments for next [MSV_PROMISE_THEN](#msv_promise_then-and-msv_promise_then_argsn). There are these versions of MSV_PROMISE_DEFINE_ARGSn macros:
 
  - MSV_PROMISE_DEFINE_ARGS1
  - MSV_PROMISE_DEFINE_ARGS2
@@ -105,9 +105,9 @@ MSV_PROMISE_DEFINE_ARGS1(int x);					//generates:	int x;
 MSV_PROMISE_DEFINE_ARGS2(int x = 1, int y = 2);		//generates:	int x = 1; int y = 2;
 ~~~
 
-## MSV_PROMISE and MSV_PROMISE_ARGS[n]
-Promise entry point and the first checked call. If the call failes it breaks, executes request action or actions (can be any number of actions) and [MSV_PROMISE_CATCH](#MSV_PROMISE_CATCH) is executed. No next checked call is executed.  
-There are these versions of MSV_PROMISE and MSV_PROMISE_ARGS[n] macros:
+## MSV_PROMISE and MSV_PROMISE_ARGSn
+Promise entry point and the first checked call. If the call failes it breaks, executes request action or actions (can be any number of actions) and [MSV_PROMISE_CATCH](#msv_promise_catch) is executed. No next checked call is executed.  
+There are these versions of MSV_PROMISE and MSV_PROMISE_ARGSn macros:
 
  - MSV_PROMISE
  - MSV_PROMISE_ARGS1
@@ -151,9 +151,9 @@ MSV_PROMISE_ARGS2(int x = 1, int y = 2, FunctionCall(x, &y), LOG_ERROR("Promise 
 		}
 ~~~
 
-## MSV_PROMISE_THEN and MSV_PROMISE_THEN_ARGS[n]
-Executes call and checks its result. If the call failes it breaks, executes request action or actions (can be any number of actions) and [MSV_PROMISE_CATCH](#MSV_PROMISE_CATCH) is executed. No next checked call is executed.  
-There are these versions of MSV_PROMISE_THEN and MSV_PROMISE_THEN_ARGS[n] macros:
+## MSV_PROMISE_THEN and MSV_PROMISE_THEN_ARGSn
+Executes call and checks its result. If the call failes it breaks, executes request action or actions (can be any number of actions) and [MSV_PROMISE_CATCH](#msv_promise_catch) is executed. No next checked call is executed.  
+There are these versions of MSV_PROMISE_THEN and MSV_PROMISE_THEN_ARGSn macros:
 
  - MSV_PROMISE_THEN
  - MSV_PROMISE_THEN_ARGS1
@@ -163,7 +163,7 @@ There are these versions of MSV_PROMISE_THEN and MSV_PROMISE_THEN_ARGS[n] macros
  - MSV_PROMISE_THEN_ARGS5
  - MSV_PROMISE_THEN_VOID - this macro ignores returned error. Void functions can be called with it too.
 
-The number at the end of macro name is a number of defined arguments (up to five). If you need more arguments you are free to use [MSV_PROMISE_DEFINE_ARGS[n]](#MSV_PROMISE_DEFINE_ARGS[n]) before these macros.
+The number at the end of macro name is a number of defined arguments (up to five). If you need more arguments you are free to use [MSV_PROMISE_DEFINE_ARGSn](#msv_promise_define_argsn) before these macros.
 **Examples:**
 ~~~cpp
 MSV_PROMISE_THEN(FunctionCall(), LOG_ERROR("Promise failed."));
@@ -189,9 +189,9 @@ if (MSV_PROMISE_LIKE_FAILED((mplsErrorCode = (FunctionCall(x, &y))))
 }
 ~~~
 
-## MSV_PROMISE_THEN_CONTINUE and MSV_PROMISE_THEN_CONTINUE_ARGS[n]
-Executes call and checks its result, but does not break next exectution. If the call failes it executes request action or actions (can be any number of actions) and continues to next call. [MSV_PROMISE_CATCH](#MSV_PROMISE_CATCH) is not executed.  
-There are these versions of MSV_PROMISE_THEN_CONTINUE and MSV_PROMISE_THEN_CONTINUE_ARGS[n] macros:
+## MSV_PROMISE_THEN_CONTINUE and MSV_PROMISE_THEN_CONTINUE_ARGSn
+Executes call and checks its result, but does not break next exectution. If the call failes it executes request action or actions (can be any number of actions) and continues to next call. [MSV_PROMISE_CATCH](#msv_promise_catch) is not executed.  
+There are these versions of MSV_PROMISE_THEN_CONTINUE and MSV_PROMISE_THEN_CONTINUE_ARGSn macros:
 
  - MSV_PROMISE_THEN_CONTINUE
  - MSV_PROMISE_THEN_CONTINUE_ARGS1
@@ -200,7 +200,7 @@ There are these versions of MSV_PROMISE_THEN_CONTINUE and MSV_PROMISE_THEN_CONTI
  - MSV_PROMISE_THEN_CONTINUE_ARGS4
  - MSV_PROMISE_THEN_CONTINUE_ARGS5
 
-The number at the end of macro name is a number of defined arguments (up to five). If you need more arguments you are free to use [MSV_PROMISE_DEFINE_ARGS[n]](#MSV_PROMISE_DEFINE_ARGS[n]) before these macros.
+The number at the end of macro name is a number of defined arguments (up to five). If you need more arguments you are free to use [MSV_PROMISE_DEFINE_ARGSn](#msv_promise_define_argsn) before these macros.
 **Examples:**
 ~~~cpp
 MSV_PROMISE_THEN_CONTINUE(FunctionCall(), LOG_ERROR("Promise failed."));
@@ -285,7 +285,7 @@ MSV_PROMISE_CATCH_IGNORE_ERROR
 ~~~
 
 ## Source code documentation
-You can find generated source code documentation at [https://www.marstech.cz/projects/mpls/1.0.1/doc](https://www.marstech.cz/projects/mpls/1.0.1/doc){:target="_blank"}.
+You can find generated source code documentation at [https://www.marstech.cz/projects/mpls/1.0.1/doc](https://www.marstech.cz/projects/mpls/1.0.1/doc).
 
 ## License
 This project is released under GNU General Public License version 3. If you can not or do not want to accept GNU GPLv3 license and you would like to use this project under another license, please contact me on [info@marstech.cz](mailto:info@marstech.cz) or visit [www.marstech.cz](https://www.marstech.cz/en).
