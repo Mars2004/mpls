@@ -1,6 +1,6 @@
 /**************************************************************************************************//**
 * @defgroup		MPLS MarsTech Promise Like Syntax
-* @brief			MarsTech Promise Like Syntax
+* @brief			MarsTech Promise Like Syntax macros
 * @details		Contains implementation and all definitions of MarsTech Promise Like Syntax.
 * @copyright	GNU General Public License (GPLv3).
 * @{
@@ -34,8 +34,8 @@ along with Foobar. If not, see <https://www.gnu.org/licenses/>.
 */
 
 
-#ifndef MARSTECH_PROMISE_LIKE_SYNTAX
-#define MARSTECH_PROMISE_LIKE_SYNTAX
+#ifndef MARSTECH_PROMISE_LIKE_SYNTAX_H
+#define MARSTECH_PROMISE_LIKE_SYNTAX_H
 
 
 #ifndef MSV_PROMISE_LIKE_ERRORCODE_TYPE
@@ -624,6 +624,6 @@ along with Foobar. If not, see <https://www.gnu.org/licenses/>.
 	} while (false); \
 }
 
-#endif // !MARSTECH_PROMISE_LIKE_SYNTAX
+#endif // !MARSTECH_PROMISE_LIKE_SYNTAX_H
 
 /** @} */	//End of group MPLS.
